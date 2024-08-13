@@ -17,9 +17,7 @@ jobs:
           scan_type: 'staging'
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net?mode=demo'
-          login_method: userpass
-          login_user: jsmith
-          login_password: demo1234
+          login_method: none
           network: public
           fail_for_noncompliance: false
           wait_for_analysis: true
