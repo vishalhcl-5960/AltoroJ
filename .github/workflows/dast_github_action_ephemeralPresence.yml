@@ -1,0 +1,26 @@
+name: "HCL AppScan DAST - ephemeral presence"
+on:
+  workflow_dispatch
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Run ASoC DAST Scan
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.5
+        
+        with:
+          baseurl:  https://cloud.appscan.com
+          asoc_key: ${{secrets.ASOC_KEY}}
+          asoc_secret: ${{secrets.ASOC_SECRET}}
+          application_id: 7b3f217f-988c-41d5-9e91-877353174267
+          dynamic_scan_type: dast
+          starting_URL: 'https://demo.testfire.net'
+          ephemeral_presence: true
+      - uses: actions/upload-artifact@v3
+        name: Upload HCL AppScan HTML Report to Github Artifacts
+        with:
+          name: AppScan Security Scan HTML Report 
+          path: '**/AppScan*.html'
+        if: success() || failure()
