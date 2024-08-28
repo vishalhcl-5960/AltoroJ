@@ -13,11 +13,9 @@ jobs:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
-          application_id: acd3ef50-6276-461d-8514-abc6e7113577
+          application_id: 7b3f217f-988c-41d5-9e91-877353174267
           dynamic_scan_type: upload
-          scan_or_scant_file: 'altoro.scant'
-          network: private
-          presence_id: f185efda-67bf-ed11-ba76-14cb65723612
+          scan_or_scant_file: 'DTF.scant'
           fail_for_noncompliance: false
           wait_for_analysis: true
       - uses: actions/upload-artifact@v3
