@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
         uses: vishalhcl-5960/appscan-dast-action@ASA-9151
         with:
@@ -19,7 +19,7 @@ jobs:
           network: public
           fail_for_noncompliance: false
           wait_for_analysis: true
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
           name: AppScan Security Scan HTML Report 
