@@ -3,7 +3,7 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: linux-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
