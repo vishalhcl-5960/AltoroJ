@@ -3,12 +3,12 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@windowsErrors
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
