@@ -8,17 +8,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.7
         with:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
           application_id: 7b3f217f-988c-41d5-9e91-877353174267
+          scan_name: No_login_DAST_Customer-Script
           dynamic_scan_type: dast
-          starting_URL: 'https://demo.testfire.net'
-          network: public
-          fail_for_noncompliance: false
+          starting_URL: https://demo.testfire.net
+          login_method: none
+          network: private
+          presence_id: a718771f-f642-f111-8ef3-00224854fbc5
+          optimization: Fastest
+          ephemeral_presence: false
+          email_notification: false
+          personal_scan: false
           wait_for_analysis: true
+          wait_for_analysis_timeout_minutes: 360
+          fail_for_noncompliance: false
+          fail_by_severity: false
+          failure_threshold: High
       - uses: actions/upload-artifact@v4
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
