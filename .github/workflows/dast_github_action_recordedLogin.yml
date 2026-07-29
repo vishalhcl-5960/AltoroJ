@@ -17,8 +17,9 @@ jobs:
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           login_method: recorded
-          login_sequence_file: './loginRecord/DTF_Login_NewHTTPS.dast.config'	
-          network: public
+          network: private
+          presence_id: a718771f-f642-f111-8ef3-00224854fbc5
+          login_sequence_file: './loginRecord/DTF_Login_NewHTTPS.dast.config'
           fail_for_noncompliance: false
           wait_for_analysis: true
       - uses: actions/upload-artifact@v4
