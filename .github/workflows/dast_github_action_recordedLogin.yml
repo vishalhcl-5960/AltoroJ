@@ -17,7 +17,7 @@ jobs:
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           login_method: recorded
-          login_sequence_fil: 'DTF_Login_NewHTTPS.dast.config'	
+          login_sequence_file: 'DTF_Login_NewHTTPS.dast'	
           network: public
           fail_for_noncompliance: false
           wait_for_analysis: true
