@@ -1,4 +1,4 @@
-name: "HCL AppScan DAST - recordedLogin"
+name: "HCL AppScan DAST - recordedLogin-Staging"
 on:
   workflow_dispatch
 jobs:
@@ -10,15 +10,14 @@ jobs:
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.7
         with:
-          baseurl:  https://cloud.appscan.com
-          asoc_key: ${{secrets.ASOC_KEY}}
-          asoc_secret: ${{secrets.ASOC_SECRET}}
-          application_id: 7b3f217f-988c-41d5-9e91-877353174267
+          baseurl:  https://staging.appscan.internal
+          asoc_key: ${{secrets.STAGE_SAST_KEY}}
+          asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
+          application_id: 60dcb372-f87b-4e07-b351-190652c83756
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           login_method: recorded
-          network: private
-          presence_id: a718771f-f642-f111-8ef3-00224854fbc5
+          network: public
           login_sequence_file: './loginRecord/DTF_Login_NewHTTPS.dast.config'
           fail_for_noncompliance: false
           wait_for_analysis: true
