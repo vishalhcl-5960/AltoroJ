@@ -8,7 +8,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.7
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
+        env:
+          ACCEPTSSL: "true"
         with:
           baseurl:  https://staging.appscan.internal
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
