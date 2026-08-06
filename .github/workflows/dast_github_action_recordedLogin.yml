@@ -1,4 +1,4 @@
-name: "HCL AppScan DAST - recordedLogin-Staging"
+name: "HCL AppScan DAST - recordedLogin"
 on:
   workflow_dispatch
 jobs:
@@ -8,14 +8,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
-        env:
-          ACCEPTSSL: "true"
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.7
         with:
-          baseurl:  https://staging.appscan.internal
-          asoc_key: ${{secrets.STAGE_SAST_KEY}}
-          asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
-          application_id: 60dcb372-f87b-4e07-b351-190652c83756
+          scan_name: Check_DAST_Execution
+          baseurl:  https://cloud.appscan.com
+          asoc_key: ${{secrets.ASOC_KEY}}
+          asoc_secret: ${{secrets.ASOC_SECRET}}
+          application_id: 7b3f217f-988c-41d5-9e91-877353174267
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           login_method: recorded
