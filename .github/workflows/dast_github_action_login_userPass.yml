@@ -8,14 +8,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@fixSpawn
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
           application_id: 7b3f217f-988c-41d5-9e91-877353174267
           dynamic_scan_type: dast
-          starting_URL: 'https://demo.testfire.net?mode=demo'
+          starting_URL: 'https://demo.testfire.net'
           login_method: userpass
           login_user: jsmith
           login_password: demo1234
