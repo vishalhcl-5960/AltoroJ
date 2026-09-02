@@ -6,9 +6,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2146
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
@@ -21,14 +21,14 @@ jobs:
           network: public
           optimization: Fastest
           ephemeral_presence: false
-          email_notification: false
+          email_notification: true
           personal_scan: false
           wait_for_analysis: true
           wait_for_analysis_timeout_minutes: 360
           fail_for_noncompliance: false
           fail_by_severity: false
           failure_threshold: High
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4.6.1
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
           name: AppScan Security Scan HTML Report 
