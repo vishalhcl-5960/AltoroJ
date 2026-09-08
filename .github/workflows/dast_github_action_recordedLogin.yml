@@ -3,18 +3,19 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.7
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
-          scan_name: Check_DAST_Execution
-          baseurl:  https://cloud.appscan.com
-          asoc_key: ${{secrets.ASOC_KEY}}
-          asoc_secret: ${{secrets.ASOC_SECRET}}
-          application_id: 7b3f217f-988c-41d5-9e91-877353174267
+          scan_name: Check_DAST_Self_Host_Runner
+          baseurl:  https://staging.appscan.internal
+          acceptssl: true
+          asoc_key: ${{secrets.STAGE_SAST_KEY}}
+          asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
+          application_id: c97004ac-f856-45bd-acca-3780c5f4ba9d
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           login_method: recorded
