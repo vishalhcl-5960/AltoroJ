@@ -3,7 +3,7 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -11,7 +11,7 @@ jobs:
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
           baseurl:  https://staging.appscan.internal
-          acceptssl: false
+          acceptssl: true
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
           asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
           application_id: c97004ac-f856-45bd-acca-3780c5f4ba9d
