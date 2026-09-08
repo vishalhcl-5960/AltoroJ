@@ -11,7 +11,7 @@ jobs:
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
           baseurl:  https://staging.appscan.internal
-          acceptssl: true
+          acceptssl: false
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
           asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
           application_id: c97004ac-f856-45bd-acca-3780c5f4ba9d
