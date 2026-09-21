@@ -3,10 +3,10 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
@@ -16,9 +16,10 @@ jobs:
           application_id: 7b3f217f-988c-41d5-9e91-877353174267
           dynamic_scan_type: upload
           scan_or_scant_file: 'DTF.scant'
-          fail_for_noncompliance: false
+          network: public
+          fail_for_noncompliance: true
           wait_for_analysis: true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
           name: AppScan Security Scan HTML Report 
