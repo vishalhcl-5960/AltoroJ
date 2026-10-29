@@ -3,18 +3,18 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.8
         with:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
           application_id: 7b3f217f-988c-41d5-9e91-877353174267
-          scan_name: No_login_DAST_Customer-Script
+          scan_name: No_login_ubuntu_runner
           dynamic_scan_type: dast
           starting_URL: https://demo.testfire.net
           login_method: none
