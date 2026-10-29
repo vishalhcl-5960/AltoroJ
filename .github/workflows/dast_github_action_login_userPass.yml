@@ -3,14 +3,14 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.8
         with:
-          scan_name: check_self_hosted_UserPass
+          scan_name: check_ubuntu_public_runner_user_pass
           baseurl:  https://staging.appscan.internal
           acceptssl: true
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
