@@ -3,12 +3,12 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.8
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2495
         with:
           scan_name: check_ubuntu_public_runner_user_pass
           baseurl:  https://staging.appscan.internal
