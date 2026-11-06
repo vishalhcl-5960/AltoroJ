@@ -10,25 +10,18 @@ jobs:
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2495
         with:
+          scan_name: no_login_self_hosted
           baseurl:  https://staging.appscan.internal
           acceptssl: true
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
           asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
           application_id: c97004ac-f856-45bd-acca-3780c5f4ba9d
-          scan_name: No_login_self_hosted_runner
           dynamic_scan_type: dast
-          starting_URL: https://demo.testfire.net
+          starting_URL: 'https://demo.testfire.net'
           login_method: none
           network: public
-          optimization: Fast
-          ephemeral_presence: false
-          email_notification: true
-          personal_scan: true
-          wait_for_analysis: true
-          wait_for_analysis_timeout_minutes: 360
           fail_for_noncompliance: false
-          fail_by_severity: false
-          failure_threshold: High
+          wait_for_analysis: true
       - uses: actions/upload-artifact@v6
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
