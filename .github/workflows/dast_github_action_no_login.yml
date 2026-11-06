@@ -14,15 +14,15 @@ jobs:
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
           application_id: 7b3f217f-988c-41d5-9e91-877353174267
-          scan_name: No_login_ubuntu_runner
+          scan_name: No_login_public_ubuntu_runner
           dynamic_scan_type: dast
           starting_URL: https://demo.testfire.net
           login_method: none
           network: public
-          optimization: Fastest
+          optimization: Fast
           ephemeral_presence: false
           email_notification: true
-          personal_scan: false
+          personal_scan: true
           wait_for_analysis: true
           wait_for_analysis_timeout_minutes: 360
           fail_for_noncompliance: false
