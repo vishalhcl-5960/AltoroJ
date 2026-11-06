@@ -3,10 +3,10 @@ on:
   workflow_dispatch
 jobs:
   scan:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2495
         with:
@@ -28,7 +28,7 @@ jobs:
           fail_for_noncompliance: false
           fail_by_severity: false
           failure_threshold: High
-      - uses: actions/upload-artifact@v4.6.1
+      - uses: actions/upload-artifact@v6
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
           name: AppScan Security Scan HTML Report 
