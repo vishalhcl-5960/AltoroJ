@@ -10,17 +10,17 @@ jobs:
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2583
         with:
-          scan_name: check_workflow_Application_Invalid
+          scan_name: check_workflow_worng_username_pass
           baseurl:  https://staging.appscan.internal
           acceptssl: true
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
           asoc_secret: ${{secrets.STAGE_SAST_SECRET}}
-          application_id: c97004ac-f856-45bd-acca-3780c5f4ba9c
+          application_id: c97004ac-f856-45bd-acca-3780c5f4ba9d
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           login_method: userpass
-          login_user: jsmith
-          login_password: demo1234
+          login_user: jsm
+          login_password: demo12
           network: public
           fail_for_noncompliance: false
           wait_for_analysis: true
