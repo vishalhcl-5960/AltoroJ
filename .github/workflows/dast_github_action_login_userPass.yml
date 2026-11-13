@@ -8,9 +8,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2583
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.8
         with:
-          scan_name: check_workflow_worng_username_pass
+          scan_name: check_workflow_worng_username_pass_released_action
           baseurl:  https://staging.appscan.internal
           acceptssl: true
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
