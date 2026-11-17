@@ -6,11 +6,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2583
         
         with:
+          scan_name: check_ephemeral_presence_scenario_public_runner
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
           asoc_secret: ${{secrets.ASOC_SECRET}}
@@ -18,7 +19,7 @@ jobs:
           dynamic_scan_type: dast
           starting_URL: 'https://demo.testfire.net'
           ephemeral_presence: true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         name: Upload HCL AppScan HTML Report to Github Artifacts
         with:
           name: AppScan Security Scan HTML Report 
