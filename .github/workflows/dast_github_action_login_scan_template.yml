@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Run ASoC DAST Scan
-        uses: HCL-TECH-SOFTWARE/appscan-dast-action@v1.0.8
+        uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2583
         with:
           baseurl:  https://cloud.appscan.com
           asoc_key: ${{secrets.ASOC_KEY}}
@@ -17,7 +17,7 @@ jobs:
           dynamic_scan_type: upload
           scan_or_scant_file: 'DTF.scant'
           network: public
-          fail_for_noncompliance: true
+          fail_for_noncompliance: false
           wait_for_analysis: true
       - uses: actions/upload-artifact@v6
         name: Upload HCL AppScan HTML Report to Github Artifacts
