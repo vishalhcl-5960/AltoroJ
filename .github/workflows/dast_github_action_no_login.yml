@@ -20,7 +20,7 @@ jobs:
           starting_URL: 'https://demo.testfire.net'
           login_method: none
           network: public
-          fail_for_noncompliance: false
+          fail_for_noncompliance: true
           wait_for_analysis: true
       - uses: actions/upload-artifact@v6
         name: Upload HCL AppScan HTML Report to Github Artifacts
