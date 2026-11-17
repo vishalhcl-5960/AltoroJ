@@ -10,7 +10,7 @@ jobs:
       - name: Run ASoC DAST Scan
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@ASPL-2583
         with:
-          scan_name: Check_DAST_Self_Host_Recorded_login_wrong_file_name
+          scan_name: Check_DAST_Self_Host_Recorded_login_valid
           baseurl:  https://staging.appscan.internal
           acceptssl: true
           asoc_key: ${{secrets.STAGE_SAST_KEY}}
@@ -20,7 +20,7 @@ jobs:
           starting_URL: 'https://demo.testfire.net'
           login_method: recorded
           network: public
-          login_sequence_file: './loginRecord/Login_NewHTTPS.dast.config'
+          login_sequence_file: './loginRecord/DTF_Login_NewHTTPS.dast.config'
           fail_for_noncompliance: false
           wait_for_analysis: true
       - uses: actions/upload-artifact@v4
