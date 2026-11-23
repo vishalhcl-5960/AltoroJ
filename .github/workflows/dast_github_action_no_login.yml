@@ -11,7 +11,7 @@ jobs:
         uses: HCL-TECH-SOFTWARE/appscan-dast-action@main
         with:
           scan_name: no_login_self_hosted_with_fail_non_Compliance
-          baseurl:  https://blmycldtl446131.appscan-test.local/
+          baseurl:  https://blmycldtl446131.appscan-test.local
           acceptssl: true
           asoc_key: ${{secrets.AS360_KEY}}
           asoc_secret: ${{secrets.AS360_SECRET}}
